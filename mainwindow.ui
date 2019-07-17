@@ -79,50 +79,80 @@
    <property name="text">
     <string>select all (Ctrl + A)</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
   </action>
   <action name="actionCut_Ctrl_X">
    <property name="text">
     <string>Cut (Ctrl + X)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
    </property>
   </action>
   <action name="actionCopy_Ctrl_C">
    <property name="text">
     <string>Copy (Ctrl + C)</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
   </action>
   <action name="actionPaste_Ctrl_V">
    <property name="text">
     <string>Paste (Ctrl + V)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
    </property>
   </action>
   <action name="actionUndo_Ctrl_Z">
    <property name="text">
     <string>Undo (Ctrl + Z)</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
   </action>
   <action name="actionRedo_Shift_Ctrl_Z">
    <property name="text">
     <string>Redo (Shift + Ctrl + Z)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Z</string>
    </property>
   </action>
   <action name="actionNew_Ctrl_N">
    <property name="text">
     <string>New (Ctrl + N)</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="actionOpen_Shift_Ctrl_N">
    <property name="text">
     <string>Open (Shift + Ctrl +N)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+N</string>
    </property>
   </action>
   <action name="actionSave_Ctrl_S">
    <property name="text">
     <string>Save (Ctrl + S)</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionSave_as_Shift_Ctrl_S">
    <property name="text">
     <string>Save as...(Shift + Ctrl + S)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
    </property>
   </action>
  </widget>
