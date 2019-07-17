@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QMessageBox>
+#include <QCloseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -11,6 +13,9 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+
+public slots:
+    void on_textEdit_change();
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
@@ -31,17 +36,21 @@ private slots:
 
     void on_actionRedo_Shift_Ctrl_Z_triggered();
 
-    void on_actionNew_Ctrl_N_triggered();
+    bool on_actionNew_Ctrl_N_triggered();
 
-    void on_actionOpen_Shift_Ctrl_N_triggered();
+    bool on_actionOpen_Shift_Ctrl_N_triggered();
 
-    void on_actionSave_Ctrl_S_triggered();
+    bool on_actionSave_Ctrl_S_triggered();
 
-    void on_actionSave_as_Shift_Ctrl_S_triggered();
+    bool on_actionSave_as_Shift_Ctrl_S_triggered();
 
 private:
     Ui::MainWindow *ui;
     QString open_file;
+    bool unsaved_change;
+
+    QMessageBox::StandardButton check_unsaved_changes();
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // MAINWINDOW_H
