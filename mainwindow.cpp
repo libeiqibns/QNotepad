@@ -5,13 +5,25 @@
 #include <QDir>
 #include <QTextStream>
 #include <QMessageBox>
-
+#include <QTextDocument>
 
 void MainWindow::on_textEdit_change()
 {
 //    QMessageBox::information(this,"","text changed");
     unsaved_change = true;
     this->setWindowTitle(open_file == "" ? "New File": open_file + " (unsaved changes)");
+}
+
+void MainWindow::on_find_next(QString search_string)
+{
+//    QMessageBox::information(this,"","next clicked");
+    ui->textEdit->find(search_string);
+}
+
+void MainWindow::on_find_prev(QString search_string)
+{
+//    QMessageBox::information(this,"","prev clicked");
+    ui->textEdit->find(search_string,QTextDocument::FindBackward);
 }
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -22,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
     unsaved_change = false;
     ui->setupUi(this);
     setCentralWidget(ui->textEdit);
+    ui->statusBar->addPermanentWidget(ui->label);
     this->setWindowTitle("New File");
     connect(ui->textEdit,SIGNAL(textChanged()),this,SLOT(on_textEdit_change()));
 }
@@ -134,6 +147,13 @@ bool MainWindow::on_actionSave_as_Shift_Ctrl_S_triggered()
     return true;
 }
 
+void MainWindow::on_actionFind_Ctrl_F_triggered()
+{
+    find_dialog = new FindDialog(this);
+    find_dialog->setAttribute(Qt::WA_DeleteOnClose);
+    find_dialog->show();
+}
+
 QMessageBox::StandardButton MainWindow::check_unsaved_changes()
 {
     if (!unsaved_change) return QMessageBox::No;
@@ -162,3 +182,4 @@ void MainWindow::closeEvent(QCloseEvent *event)
         event->ignore();
     }
 }
+

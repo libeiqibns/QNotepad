@@ -18,6 +18,13 @@
     <item>
      <widget class="QTextEdit" name="textEdit"/>
     </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>123</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -47,6 +54,7 @@
     <addaction name="actionCut_Ctrl_X"/>
     <addaction name="actionCopy_Ctrl_C"/>
     <addaction name="actionPaste_Ctrl_V"/>
+    <addaction name="actionFind_Ctrl_F"/>
     <addaction name="separator"/>
     <addaction name="actionUndo_Ctrl_Z"/>
     <addaction name="actionRedo_Shift_Ctrl_Z"/>
@@ -153,6 +161,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionFind_Ctrl_F">
+   <property name="text">
+    <string>Find (Ctrl + F)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
    </property>
   </action>
  </widget>

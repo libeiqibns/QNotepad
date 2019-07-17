@@ -5,6 +5,7 @@
 #include <QString>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include "finddialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +17,8 @@ class MainWindow : public QMainWindow
 
 public slots:
     void on_textEdit_change();
+    void on_find_next(QString );
+    void on_find_prev(QString);
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
@@ -44,10 +47,13 @@ private slots:
 
     bool on_actionSave_as_Shift_Ctrl_S_triggered();
 
+    void on_actionFind_Ctrl_F_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString open_file;
     bool unsaved_change;
+    FindDialog *find_dialog;
 
     QMessageBox::StandardButton check_unsaved_changes();
     void closeEvent(QCloseEvent *event);

@@ -25,13 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        finddialog.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        finddialog.h \
         mainwindow.h
 
 FORMS += \
+        finddialog.ui \
         mainwindow.ui
 
 # Default rules for deployment.
