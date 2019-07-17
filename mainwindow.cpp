@@ -4,6 +4,8 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QTextStream>
+#include <QMessageBox>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -62,15 +64,43 @@ void MainWindow::on_actionNew_Ctrl_N_triggered()
 
 void MainWindow::on_actionOpen_Shift_Ctrl_N_triggered()
 {
-
+    QString file_name = QFileDialog::getOpenFileName(this,"Open File", QDir::rootPath());
+    QFile file(file_name);
+    if (!file.open(QFile::Text | QFile::ReadOnly)){
+        QMessageBox::warning(this,"Error","Cannot open file" + file_name);
+        return;
+    }
+    open_file = file_name;
+    QTextStream in(&file);
+    ui->textEdit->setPlainText(in.readAll());
+    in.flush();
+    this->setWindowTitle(open_file);
+    file.close();
 }
 
 void MainWindow::on_actionSave_Ctrl_S_triggered()
 {
-
+    QFile file(open_file);
+    if (!file.open(QFile::Text | QFile::WriteOnly)){
+        on_actionSave_as_Shift_Ctrl_S_triggered();
+        return;
+    }
+    QTextStream out(&file);
+    out << ui->textEdit->toPlainText();
+    file.close();
 }
 
 void MainWindow::on_actionSave_as_Shift_Ctrl_S_triggered()
 {
-
+    QString file_name = QFileDialog::getSaveFileName(this,"Save as", QDir::rootPath());
+    QFile file(file_name);
+    if (!file.open(QFile::Text | QFile::WriteOnly)){
+        QMessageBox::warning(this,"Error","Cannot save file" + file_name);
+        return;
+    }
+    open_file = file_name;
+    QTextStream out(&file);
+    out << ui->textEdit->toPlainText();
+    this->setWindowTitle(open_file);
+    file.close();
 }
