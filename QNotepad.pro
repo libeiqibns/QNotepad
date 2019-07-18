@@ -25,12 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        codeeditor.cpp \
         finddialog.cpp \
+        linenumberarea.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        codeeditor.h \
         finddialog.h \
+        linenumberarea.h \
         mainwindow.h
 
 FORMS += \
