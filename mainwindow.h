@@ -20,6 +20,7 @@ public slots:
     void on_textEdit_change();
     void on_find_next(QString );
     void on_find_prev(QString);
+    void on_text_cursor_move(QString &);
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);

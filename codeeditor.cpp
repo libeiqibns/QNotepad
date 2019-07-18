@@ -10,6 +10,8 @@ CodeEditor::CodeEditor(QWidget *parent) : QPlainTextEdit(parent)
     connect(this, &CodeEditor::blockCountChanged, this, &CodeEditor::updateLineNumberAreaWidth);
     connect(this, &CodeEditor::updateRequest, this, &CodeEditor::updateLineNumberArea);
     connect(this, &CodeEditor::cursorPositionChanged, this, &CodeEditor::highlightCurrentLine);
+    connect(this, &CodeEditor::cursorPositionChanged, this, &CodeEditor::on_cursor_move);
+    connect(this, SIGNAL(cursor_position_change(QString &)),parent->parent(),SLOT(on_text_cursor_move(QString &)));
 
     updateLineNumberAreaWidth(0);
     highlightCurrentLine();
@@ -43,6 +45,14 @@ void CodeEditor::updateLineNumberArea(const QRect &rect, int dy)
 
     if (rect.contains(viewport()->rect()))
         updateLineNumberAreaWidth(0);
+}
+
+void CodeEditor::on_cursor_move()
+{
+    QString line_num = QString::number(textCursor().blockNumber() + 1);
+    QString column_num = QString::number(textCursor().columnNumber() + 1);
+    QString text = "Ln " + line_num +" Col " +column_num;
+    emit cursor_position_change(text);
 }
 
 void CodeEditor::resizeEvent(QResizeEvent *e)

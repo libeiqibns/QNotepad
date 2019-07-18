@@ -26,6 +26,11 @@ void MainWindow::on_find_prev(QString search_string)
     ui->textEdit->find(search_string,QTextDocument::FindBackward);
 }
 
+void MainWindow::on_text_cursor_move(QString & text)
+{
+    ui->label->setText(text);
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -111,6 +116,7 @@ bool MainWindow::on_actionOpen_Shift_Ctrl_N_triggered()
     this->setWindowTitle(open_file);
     file.close();
     unsaved_change = false;
+    ui->label->setText("");
     return true;
 }
 
