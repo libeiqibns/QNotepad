@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     open_file = "";
     unsaved_change = false;
     ui->setupUi(this);
+    setupEditor();
     setCentralWidget(ui->textEdit);
     ui->statusBar->addPermanentWidget(ui->label);
     this->setWindowTitle("New File");
@@ -152,6 +153,18 @@ void MainWindow::on_actionFind_Ctrl_F_triggered()
     find_dialog = new FindDialog(this);
     find_dialog->setAttribute(Qt::WA_DeleteOnClose);
     find_dialog->show();
+}
+
+void MainWindow::setupEditor()
+{
+    QFont font;
+    font.setFamily("Courier");
+    font.setFixedPitch(true);
+    font.setPointSize(10);
+
+    ui->textEdit->setFont(font);
+
+    highlighter = new Highlighter(ui->textEdit->document());
 }
 
 QMessageBox::StandardButton MainWindow::check_unsaved_changes()

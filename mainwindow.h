@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include "finddialog.h"
+#include "highlighter.h"
 
 namespace Ui {
 class MainWindow;
@@ -51,10 +52,12 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Highlighter *highlighter;
     QString open_file;
     bool unsaved_change;
     FindDialog *find_dialog;
 
+    void setupEditor();
     QMessageBox::StandardButton check_unsaved_changes();
     void closeEvent(QCloseEvent *event);
 };

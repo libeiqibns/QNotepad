@@ -27,6 +27,7 @@ CONFIG += c++11
 SOURCES += \
         codeeditor.cpp \
         finddialog.cpp \
+        highlighter.cpp \
         linenumberarea.cpp \
         main.cpp \
         mainwindow.cpp
@@ -34,6 +35,7 @@ SOURCES += \
 HEADERS += \
         codeeditor.h \
         finddialog.h \
+        highlighter.h \
         linenumberarea.h \
         mainwindow.h
 
