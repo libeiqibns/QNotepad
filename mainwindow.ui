@@ -185,22 +185,5 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>textEdit</sender>
-   <signal>blockCountChanged(int)</signal>
-   <receiver>label</receiver>
-   <slot>setNum(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>370</x>
-     <y>584</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>308</x>
-     <y>620</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -13,3 +13,5 @@ in order to obtain a standalone executable.
 `Find String`
 `Copy, Cut, and Paste`
 `Undo and Redo`
+`Line Numbering`
+`Syntax Highlight`
