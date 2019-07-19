@@ -2,12 +2,16 @@
 #define CODEEDITOR_H
 
 #include <QPlainTextEdit>
+#include <QString>
 
 class CodeEditor : public QPlainTextEdit
 {
     Q_OBJECT
 
 public:
+    QString open_file;
+    bool unsaved_change;
+
     CodeEditor(QWidget *parent = nullptr);
 
     void lineNumberAreaPaintEvent(QPaintEvent *event);

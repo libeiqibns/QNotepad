@@ -11,7 +11,7 @@ CodeEditor::CodeEditor(QWidget *parent) : QPlainTextEdit(parent)
     connect(this, &CodeEditor::updateRequest, this, &CodeEditor::updateLineNumberArea);
     connect(this, &CodeEditor::cursorPositionChanged, this, &CodeEditor::highlightCurrentLine);
     connect(this, &CodeEditor::cursorPositionChanged, this, &CodeEditor::on_cursor_move);
-    connect(this, SIGNAL(cursor_position_change(QString &)),parent->parent(),SLOT(on_text_cursor_move(QString &)));
+    connect(this, SIGNAL(cursor_position_change(QString &)),parent,SLOT(on_text_cursor_move(QString &)));
 
     updateLineNumberAreaWidth(0);
     highlightCurrentLine();

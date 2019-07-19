@@ -7,6 +7,7 @@
 #include <QCloseEvent>
 #include "finddialog.h"
 #include "highlighter.h"
+#include "codeeditor.h"
 
 namespace Ui {
 class MainWindow;
@@ -50,6 +51,8 @@ private slots:
     bool on_actionSave_as_Shift_Ctrl_S_triggered();
 
     void on_actionFind_Ctrl_F_triggered();
+
+    void on_tabWidget_tabCloseRequested(int index);
 
 private:
     Ui::MainWindow *ui;
